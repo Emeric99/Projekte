@@ -3,148 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestellungen</title>
+    <title>Bestellungen – Afroshop</title>
+    <link rel="stylesheet" href="main.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            flex: 1;
+        .orders-section {
+            margin: 120px auto 40px;
             width: 80%;
-            margin: auto;
         }
 
-        header {
-            z-index: 10;
-            height: 90px;
-            width: 100%;
-            background-color: #1c1818;
-            color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
+        .orders-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #1c1818;
         }
 
-        header a {
+        .keine-bestellungen {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: #888;
+        }
+
+        .keine-bestellungen a {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 24px;
+            background-color: #50b3a2;
             color: #fff;
             text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
         }
 
-        header ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
+        .keine-bestellungen a:hover {
+            background-color: #3b8c78;
         }
 
-        header li {
-            display: inline;
-            padding: 15px 25px;
-            margin-left: 10px;
+        .bestellung-card {
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            cursor: pointer;
-        }
-
-        header li:hover {
-            background-color: #424247;
-        }
-
-        header .shopping {
-            position: relative;
-        }
-
-        header .shopping img {
-            width: 40px;
-        }
-
-        header .shopping span {
-            background: red;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            position: absolute;
-            top: -5px;
-            left: 100%;
-            padding: 3px 10px;
-        }
-
-        .list {
-            margin: 150px auto 20px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
 
-        .list h2 {
-            text-align: left;
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 24px;
+        .bestellung-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c1818;
+            color: #fff;
+            padding: 14px 20px;
         }
 
-        #orderlist {
-            background: #fff;
-            padding: 20px;
+        .bestellung-header .bestell-nr {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #50b3a2;
+        }
+
+        .bestellung-header .bestell-datum {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .bestellung-artikel {
             list-style: none;
-            border: #ccc 1px solid;
-            border-radius: 5px;
+            padding: 0;
         }
 
-        #orderlist li {
-            padding: 10px;
-            border-bottom: #ccc 1px dotted;
-            text-align: left;
+        .bestellung-artikel li {
+            display: grid;
+            grid-template-columns: 70px 1fr auto auto;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 20px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        #orderlist li:last-child {
+        .bestellung-artikel li:last-child {
             border-bottom: none;
         }
 
-        .ordern {
-            font-weight: bold;
-            color: #555;
-            display: inline-block;
-            width: 100px;
+        .bestellung-artikel img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
         }
 
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
+        .artikel-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .artikel-menge {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .artikel-preis {
+            font-weight: 600;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .bestellung-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+
+        .bestellung-footer .status {
+            font-size: 0.85rem;
+            color: #50b3a2;
+            font-weight: 600;
+        }
+
+        .bestellung-footer .gesamt {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1c1818;
+        }
+
+        .alle-loeschen {
+            margin-bottom: 20px;
+        }
+
+        .alle-loeschen button {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #888;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .alle-loeschen button:hover {
+            border-color: #e07b39;
+            color: #e07b39;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Asia & Afrika Shop</h1>
+            <h1>Asia &amp; Afrika Shop</h1>
             <nav>
                 <ul>
                     <li><a href="index1.html">Home</a></li>
@@ -152,37 +164,78 @@
                     <li><a href="bestellungen.html">Bestellungen</a></li>
                     <li><a href="position.html">Position</a></li>
                     <li><a href="ueber.html">Über uns</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="container">
-        <div class="list">
-            <h2>Bestellungen</h2>
-            <ul id="orderlist">
-            <li>
-              <span class="ordern">40023</span><br>
-                ID: 1, Name: DAX pomade super light, Quantity: 2<br>
-                ID: 4, Name: Example Product 1, Quantity: 1<br>
-            </li>
-            <li>
-              <span class="ordern">40024</span><br>
-                ID: 2, Name: dimes sour apple, Quantity: 1<br>
-                ID: 5, Name: Example Product 2, Quantity: 2<br>
-                ID: 6, Name: Example Product 3, Quantity: 1<br>
-            </li>
-            <li>
-              <span class="ordern">40025</span><br>
-                ID: 3, Name: Fitne herbal tee, Quantity: 3<br>
-                ID: 7, Name: Example Product 4, Quantity: 2<br>
-            </li>
-        </ul>
+
+    <div class="orders-section">
+        <h2>Meine Bestellungen</h2>
+        <div class="alle-loeschen">
+            <button onclick="alleLoeschen()">Alle Bestellungen löschen</button>
         </div>
+        <div id="bestellungen-container"></div>
     </div>
+
     <footer>
-        <p>&copy; 2024 Afroshop. Alle Rechte vorbehalten.</p>
+        <div class="container">
+            <p>&copy; 2024 Afroshop. Alle Rechte vorbehalten.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        function bestellungenAnzeigen() {
+            var container = document.getElementById('bestellungen-container');
+            var bestellungen = JSON.parse(localStorage.getItem('afroshop_bestellungen') || '[]');
+
+            if (bestellungen.length === 0) {
+                container.innerHTML = `
+                    <div class="keine-bestellungen">
+                        <p>Du hast noch keine Bestellungen aufgegeben.</p>
+                        <a href="produkte.html">Jetzt einkaufen</a>
+                    </div>`;
+                return;
+            }
+
+            // Neueste Bestellung zuerst
+            var sortiert = bestellungen.slice().reverse();
+
+            container.innerHTML = sortiert.map(function (bestellung) {
+                var artikelHTML = bestellung.artikel.map(function (item) {
+                    return `
+                        <li>
+                            <img src="img/${item.image}" alt="${item.name}">
+                            <span class="artikel-name">${item.name}</span>
+                            <span class="artikel-menge">x${item.quantity}</span>
+                            <span class="artikel-preis">${(item.price * item.quantity).toFixed(2)} €</span>
+                        </li>`;
+                }).join('');
+
+                return `
+                    <div class="bestellung-card">
+                        <div class="bestellung-header">
+                            <span class="bestell-nr">${bestellung.id}</span>
+                            <span class="bestell-datum">${bestellung.datum} um ${bestellung.uhrzeit}</span>
+                        </div>
+                        <ul class="bestellung-artikel">
+                            ${artikelHTML}
+                        </ul>
+                        <div class="bestellung-footer">
+                            <span class="status">✓ Bestellung eingegangen</span>
+                            <span class="gesamt">Gesamt: ${bestellung.gesamtpreis} €</span>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        function alleLoeschen() {
+            if (confirm('Alle Bestellungen wirklich löschen?')) {
+                localStorage.removeItem('afroshop_bestellungen');
+                bestellungenAnzeigen();
+            }
+        }
+
+        bestellungenAnzeigen();
+    </script>
 </body>
 </html>
