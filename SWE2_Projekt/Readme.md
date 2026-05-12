@@ -4,7 +4,7 @@ Ein vollständiges E-Commerce-Frontend, entwickelt im Rahmen des Moduls **Softwa
 
 ## Live-Demo
 
-🌐 [Zur Webanwendung](https://informatik.hs-bremerhaven.de/docker-swe2-2024-team17-web/login.html)
+🌐 [Zur Webanwendung](https://emeric99.github.io/Afroshop/)
 
 ---
 
