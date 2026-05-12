@@ -12,7 +12,7 @@ E-Commerce-Webanwendung entwickelt im Modul Softwareentwicklung 2.
 
 **Stack:** HTML · CSS · JavaScript · Bash CGI · Docker
 
-🌐 [Live-Demo](https://informatik.hs-bremerhaven.de/docker-swe2-2024-team17-web/login.html) · 📁 [Zum Projekt](./SWE2_Projekt/)
+🌐 [Live-Demo](https://emeric99.github.io/Afroshop/) · 
 
 ---
 
